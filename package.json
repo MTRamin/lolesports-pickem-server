@@ -1,0 +1,22 @@
+{
+  "name": "LoLESportsPickEm",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "author": "MTRamin",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^0.9.0",
+    "bcrypt": "^0.8.0",
+    "dotenv": "^0.4.0",
+    "good": "^2.2.3",
+    "hapi": "^6.7.1",
+    "hapi-auth-basic": "^1.1.1",
+    "hapi-auth-bearer-token": "^2.0.0",
+    "mongodb": "^1.4.10",
+    "node-uuid": "^1.4.1"
+  }
+}
