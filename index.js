@@ -10,6 +10,7 @@ DotEnv.load();
 
 var routes = require('./routes');
 var authentication = require('./authentication');
+var updateSchedule = require('./updateschedule');
 var database = require('./database');
 
 // Set server variables
@@ -53,9 +54,9 @@ database.init(function (err) {
     if (err) {
 		throw err;
 	}
-	
 	server.log('info', 'Database connection established');
 	
+	updateSchedule.init();
 	// Start server
     server.start(function () {
         server.log('info', 'Server running at: ' + server.info.uri);

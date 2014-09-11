@@ -17,8 +17,22 @@ function returnUserToken(request, reply) {
 }
 
 function returnTest(request, reply) {
-	lolesports.requestAndParseProgrammingWeek(function (err, result) {
-	    reply(result); 
+	lolesports.getProgrammingBlocksForNextWeek(function (err, programmingBlocksInWeek) {
+	    lolesports.getProgrammingBlocksForIds(programmingBlocksInWeek, function (err, blocks) {
+	        lolesports.getMatchesFromProgrammingBlocks(blocks, function (err, matches) {
+	            lolesports.getGamesForMatches(matches, function (err, games) {
+	                reply(games);    
+	            });
+	            
+	            /*
+	            lolesports.getTeamsForMatches(matches, function (err, teams) {
+	                reply(teams);  
+	            });
+	            */
+	            
+	            
+	        });
+	    });
 	});
 }
 

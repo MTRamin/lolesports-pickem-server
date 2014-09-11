@@ -26,7 +26,7 @@ function init(callback) {
 				return callback(err);
 			}
 
-			module.exports.db = db;
+			module.exports.db = 		db;
 			module.exports.user = 		db.collection(collection_user);
 			module.exports.leagues = 	db.collection(collection_leagues);
 			module.exports.teams = 		db.collection(collection_teams);
@@ -39,50 +39,23 @@ function init(callback) {
 }
 
 function find(data, collection, callback) {
-	//console.log("Database access: find");
-
-	collection.find(data).toArray(function(err, docs) {
-		if (err) {
-			return callback(err);
-		} 
-		return callback(null, docs);
-	});
+	collection.find(data).toArray(callback);
 }
 
 function contains(data, collection, callback) {
-	//console.log("Database access: contains");
-
-	collection.find(data).count(function(err, count) {
-		if (err) {
-			return callback(err);
-		}
-
-		return callback(null, (count != 0));
-	});
+	callback(null, (collection.find(data).limit(1).size() > 0));
 }
 
 function update(query, data, collection, callback) {
-	//console.log("Database access: update");
+	collection.update(query, data, callback);
+}
 
-	collection.update(query, data, function(err, result) {
-		if (!err) {
-			return callback(null, result);
-		} else {
-			return callback(err);
-		}
-	});
+function findOrCreate(query, data, collection, callback) {
+	collection.findAndModify(query, [], { $setOnInsert: data}, {new:true, upsert:true}, callback);
 }
 
 function insert(data, collection, callback) {
-	//console.log("Database access: insert");
-
-	collection.insert(data, {w:1}, function(err, result) {
-		if (!err) {
-			return callback(null, result);
-		} else {
-			return callback(err);
-		}	
-	});
+	collection.insert(data, {w:1}, callback);
 }
 
 exports.init = init;
@@ -90,3 +63,4 @@ exports.find = find;
 exports.contains = contains;
 exports.update = update;
 exports.insert = insert;
+exports.findOrCreate = findOrCreate;
