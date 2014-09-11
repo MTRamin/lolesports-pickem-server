@@ -1,22 +1,24 @@
+LoL E-Sports Pick'Em Server/API
+========
 
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+This node.js Server provides the API for the corresponding Pick'Em applications.
+
+Currently there are no applications yet, since this project is still in it's early stages and still "work in progress".
 
 
-Welcome to your Node.js project on Cloud9 IDE!
+License
+-------
 
-This chat example showcases how to use `socket.io` with a static `express` server.
+    Copyright 2014 MTRamin
 
-## Running the server
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
 
-1) Open `server.js` and start the app by clicking on the "Run" button in the top menu.
+        http://www.apache.org/licenses/LICENSE-2.0
 
-2) Alternatively you can launche the app from the Terminal:
-
-    $ node server.js
-
-Once the server is running, open the project in the shape of 'https://projectname-c9-username.c9.io/'. As you enter your name, watch the Users list (on the left) update. Once you press Enter or Send, the message is shared with all connected clients.
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License
